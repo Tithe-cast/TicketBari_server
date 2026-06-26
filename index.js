@@ -28,9 +28,7 @@ app.use(cookieParser());
 const start = async () => {
   await connectDB();
 
-  // BetterAuth needs the live Mongo `Db` instance, so it is created only
-  // after connectDB() resolves, then mounted BEFORE express.json() —
-  // BetterAuth parses its own request body.
+  
   const auth = initAuth(getDB());
   app.all("/api/auth/*", toNodeHandler(auth));
 

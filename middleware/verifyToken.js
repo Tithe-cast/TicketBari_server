@@ -1,12 +1,6 @@
 import jwt from "jsonwebtoken";
 
-/**
- * Protects API routes with our own JWT (separate from BetterAuth's session
- * cookie). The client requests this token once after BetterAuth login
- * (see routes/userRoutes.js -> POST /jwt) and sends it as:
- *   Authorization: Bearer <token>
- * on every request to our resource API.
- */
+
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
